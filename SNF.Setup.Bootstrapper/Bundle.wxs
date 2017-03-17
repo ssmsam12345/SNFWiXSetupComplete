@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+	<Bundle Name="SNFSetup" Version="3.2.0.0" Manufacturer="ARM Research LLC" UpgradeCode="47cf5ae2-22ab-444a-b240-9e89f175cb7e" SplashScreenSourceFile="$(var.SNF_CS_Installer.Setup.ProjectDir)Bitmaps\SnifferSplash.bmp">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense">
+      <bal:WixStandardBootstrapperApplication LicenseFile="$(var.SNF_CS_Installer.Setup.ProjectDir)SourceFiles\License.rtf"/>
+    </BootstrapperApplicationRef>
+
+		<Chain>
+			<!-- TODO: Define the list of chained packages. -->
+			<!-- <MsiPackage SourceFile="path\to\your.msi" /> -->
+      <MsiPackage Id="SNF_CS_Installer.Setup" SourceFile="$(var.SNF_CS_Installer.Setup.TargetPath)" Compressed="no" DisplayInternalUI="yes"/>
+		</Chain>
+	</Bundle>
+</Wix>
